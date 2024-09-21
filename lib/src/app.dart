@@ -40,14 +40,17 @@ class MyApp extends StatelessWidget {
                     ],
                   )
                 ]),
-
-                    Center(
-                child: Image.asset(
-                  "assets/images/3.0x/rickroll-roll.gif", 
-                  height:250,
-                  width:250,
+                Center(
+                  child: SizedBox(
+                    width: 250,
+                    height: 250,
+                    child: Image.asset(
+                      "assets/images/3.0x/rickroll-roll.gif",
+                      fit: BoxFit
+                          .cover, 
+                    ),
+                  ),
                 )
-                ),
               ],
             ),
           )),
