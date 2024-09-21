@@ -4,9 +4,6 @@ import 'src/app.dart';
 import 'src/settings/settings_controller.dart';
 import 'src/settings/settings_service.dart';
 
-// import 'dart:convert';
-// import ;'package:flutter/services.dart'
-
 
 class StockData {
   final String name;
@@ -22,7 +19,6 @@ class StockData {
 }
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
 
   // Set up the SettingsController, which will glue user settings to multiple
   // Flutter Widgets.

@@ -10,28 +10,44 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         brightness: Brightness.light,
         colorScheme: const ColorScheme.light().copyWith(
-          surface: const Color.fromARGB(70, 201, 201, 201),
+          surface: const Color.fromARGB(220, 255, 255, 255),
         ),
       ),
       home: Scaffold(
           appBar: AppBar(
             title: Text('Trading App'),
           ),
-          // body: 
-          // ),
           body: SingleChildScrollView(
             child: Column(
               children: [
-                TitleSection(
-                  name: 'Stocks',
+                Row(
+                  children: [
+                    Column(
+                      children: [
+                        TitleSection(
+                          name: 'Stocks',
+                        ),
+                        StocksListSection(),
+                      ],
+                    )
+                  ],
                 ),
-                StocksListSection(),
-                Text("Stocks Activity"),
-                WatchList(),
-                Center(
-            child: Image.asset(
-              "assets/images/3.0x/rickroll-roll.gif", // Ensure the path is correct
-            )),
+                Row(children: [
+                  Column(
+                    children: [
+                      Text("Stocks Activity"),
+                      WatchList(),
+                    ],
+                  )
+                ]),
+
+                    Center(
+                child: Image.asset(
+                  "assets/images/3.0x/rickroll-roll.gif", 
+                  height:250,
+                  width:250,
+                )
+                ),
               ],
             ),
           )),
@@ -72,18 +88,13 @@ class TitleSection extends StatelessWidget {
                 Text(
                   formattedDate,
                   style: TextStyle(
-                    color: Colors.grey[500],
+                    color: const Color.fromARGB(255, 1, 39, 255),
                   ),
                 ),
               ],
             ),
           ),
           /*3*/
-          Icon(
-            Icons.star,
-            color: Colors.red[500],
-          ),
-          const Text('41'),
         ],
       ),
     );
@@ -97,56 +108,63 @@ class StocksListSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(8),
-      child: Row(
-        children: [
-          Column(
-            children: [
-              Padding(
-                  padding: EdgeInsets.all(2),
-                  child: OutlinedButton(
-                      onPressed: () {
-                        debugPrint('Received click');
-                      },
-                      child: Text("Stocks list"))),
-            ],
-          ),
-          Column(
-            children: [
-              Padding(
-                  padding: EdgeInsets.all(2),
-                  child: OutlinedButton(
-                      onPressed: () {
-                        debugPrint('Received click');
-                      },
-                      child: Text("Symbols"))),
-            ],
-          ),
-          Column(
-            children: [
-              Padding(
-                  padding: EdgeInsets.all(2),
-                  child: OutlinedButton(
-                      onPressed: () {
-                        debugPrint('Received click');
-                      },
-                      child: Text("Set Alerts"))),
-            ],
-          ),
-          Column(
-            children: [
-              Padding(
-                  padding: EdgeInsets.all(2),
-                  child: OutlinedButton(
-                      onPressed: () {
-                        debugPrint('Received click');
-                      },
-                      child: Text("Trade"))),
-            ],
-          ),
-        ],
-      ),
-    );
+        padding: EdgeInsets.all(8),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Column(
+                  children: [
+                    Padding(
+                        padding: EdgeInsets.all(2),
+                        child: OutlinedButton(
+                            onPressed: () {
+                              debugPrint('Received click');
+                            },
+                            child: Text("Stocks list"))),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Padding(
+                        padding: EdgeInsets.all(2),
+                        child: OutlinedButton(
+                            onPressed: () {
+                              debugPrint('Received click');
+                            },
+                            child: Text("Symbols"))),
+                  ],
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Column(
+                  children: [
+                    Padding(
+                        padding: EdgeInsets.all(2),
+                        child: OutlinedButton(
+                            onPressed: () {
+                              debugPrint('Received click');
+                            },
+                            child: Text("Set Alerts"))),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Padding(
+                        padding: EdgeInsets.all(2),
+                        child: OutlinedButton(
+                            onPressed: () {
+                              debugPrint('Received click');
+                            },
+                            child: Text("Trade"))),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ));
   }
 }
 
